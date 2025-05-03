@@ -1,3 +1,4 @@
+using MoviesAI.Infrastructure;
 using MoviesAI.Infrastructure.Jobs;
 using Quartz;
 using Quartz.Impl;
@@ -6,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<DataBaseContext>();
+builder.Services.AddHttpClient();
 
 builder.Services.AddQuartz(q =>
 {
