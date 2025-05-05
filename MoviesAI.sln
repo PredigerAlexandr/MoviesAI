@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesAI.WebApp", "MoviesAI.WebApp\MoviesAI.WebApp.csproj", "{46F6EC25-963D-4C4E-99F7-AB38CED261D7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesAI.Domain", "MoviesAI.Domain\MoviesAI.Domain.csproj", "{0091B33F-6F19-49F7-85B0-A023E87F55E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesAI.Application", "MoviesAI.Application\MoviesAI.Application.csproj", "{52D0D5F3-AAE0-4788-AB21-7D1E13D35EAA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesAI.Infrastructure", "MoviesAI.Infrastructure\MoviesAI.Infrastructure.csproj", "{B55DED95-5AF6-4A22-AF05-9944E027AE42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesAI.WebApi", "MoviesAI.WebApi\MoviesAI.WebApi.csproj", "{79D430FD-B591-4E83-A95B-2B691C4094AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,10 +14,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{46F6EC25-963D-4C4E-99F7-AB38CED261D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46F6EC25-963D-4C4E-99F7-AB38CED261D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46F6EC25-963D-4C4E-99F7-AB38CED261D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46F6EC25-963D-4C4E-99F7-AB38CED261D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0091B33F-6F19-49F7-85B0-A023E87F55E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0091B33F-6F19-49F7-85B0-A023E87F55E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0091B33F-6F19-49F7-85B0-A023E87F55E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -30,5 +26,9 @@ Global
 		{B55DED95-5AF6-4A22-AF05-9944E027AE42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B55DED95-5AF6-4A22-AF05-9944E027AE42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B55DED95-5AF6-4A22-AF05-9944E027AE42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79D430FD-B591-4E83-A95B-2B691C4094AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79D430FD-B591-4E83-A95B-2B691C4094AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79D430FD-B591-4E83-A95B-2B691C4094AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79D430FD-B591-4E83-A95B-2B691C4094AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

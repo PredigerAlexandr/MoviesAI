@@ -1,0 +1,16 @@
+﻿@model MoviesAI.Domain.Entities.MovieEntity
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h5>@Model.Title</h5>
+    <form method="post" action="/Home/ProcessResponse">
+        <input name="MovieId" value="{@Model.Id}">
+        <button name="liked" type="submit" value="yes">Да</button>
+        <button name="liked" type="submit" value="no">Нет</button>
+    </form>
+   
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

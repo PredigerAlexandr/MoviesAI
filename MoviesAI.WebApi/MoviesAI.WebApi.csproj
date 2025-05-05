@@ -4,10 +4,10 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>MoviesAI</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\MoviesAI.Application\MoviesAI.Application.csproj" />
       <ProjectReference Include="..\MoviesAI.Infrastructure\MoviesAI.Infrastructure.csproj" />
     </ItemGroup>
 
