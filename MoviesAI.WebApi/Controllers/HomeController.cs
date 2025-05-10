@@ -21,9 +21,9 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         HttpClient client = new HttpClient();
-        var response = await client.GetAsync("");
+        var response = await client.GetAsync("http://127.0.0.1:8000/api/ai-model/");
         var content = await response.Content.ReadAsStringAsync();
-        var movieGuid = new Guid(content);
+        var movieGuid = new Guid(content.Replace("\"", ""));
         var movie = _context.Movies.FirstOrDefault(x => x.Id == movieGuid);
 
         return View(movie);
@@ -37,12 +37,13 @@ public class HomeController : Controller
         var contentModel = new ModelRequest
         {
             Id = movieId,
-            Liked = liked
+            Liked = liked,
+            UserId = new Guid("62d777c0-3bd7-4603-96ec-305a28d10875")
         };
 
         var content = new StringContent(JsonConvert.SerializeObject(contentModel), Encoding.UTF8, "application/json");
 
-        var response = await client.PostAsync("", content);
+        var response = await client.PostAsync("http://127.0.0.1:8000/api/ai-model/", content);
 
         return RedirectToAction("Index");
     }
@@ -60,7 +61,11 @@ public class HomeController : Controller
 
     private class ModelRequest
     {
+        [JsonProperty("id")]
         public Guid Id { get; set; }
+        [JsonProperty("liked")]
         public bool Liked { get; set; }
+        [JsonProperty("user_id")]
+        public Guid UserId { get; set; }
     }
 }

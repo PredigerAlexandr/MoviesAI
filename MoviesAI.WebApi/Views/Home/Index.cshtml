@@ -6,6 +6,7 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <h5>@Model.Title</h5>
+    <div><img src="@Model.ImageUrl"/></div>
     <form method="post" action="/Home/ProcessResponse">
         <input name="MovieId" value="{@Model.Id}">
         <button name="liked" type="submit" value="yes">Да</button>
