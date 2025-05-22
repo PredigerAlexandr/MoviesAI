@@ -4,14 +4,15 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
     <h5>@Model.Title</h5>
     <div><img src="@Model.ImageUrl"/></div>
+    @foreach(var genre in @Model.Genres){<div>@genre</div>}
+    @foreach(var actor in @Model.Actors){<div>@actor </div>}
+    @foreach(var country in @Model.CreatedCountries){<div>@country </div>}
+    <div>Year:@Model.CreatedYear</div>
     <form method="post" action="/Home/ProcessResponse">
-        <input name="MovieId" value="{@Model.Id}">
-        <button name="liked" type="submit" value="yes">Да</button>
-        <button name="liked" type="submit" value="no">Нет</button>
+        <input name="MovieId" value="@Model.Id">
+        <button name="liked" type="submit" value="true">Да</button>
+        <button name="liked" type="submit" value="false">Нет</button>
     </form>
-   
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

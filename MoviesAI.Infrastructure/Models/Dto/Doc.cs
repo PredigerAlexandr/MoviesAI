@@ -23,7 +23,7 @@ public class Doc
     public int? Year { get; set; }
     
     [JsonPropertyName("persons")] 
-    public List<ResponseListModel> Persons { get; set; }
+    public List<ResponseListModel>? Persons { get; set; }
 
     [JsonPropertyName("poster")]
     public Poster Poster { get; set; }
