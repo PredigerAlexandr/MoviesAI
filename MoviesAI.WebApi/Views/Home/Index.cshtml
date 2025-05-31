@@ -1,18 +1,103 @@
 ﻿@model MoviesAI.Domain.Entities.MovieEntity
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Подобрать фильм";
 }
 
-<div class="text-center">
-    <h5>@Model.Title</h5>
-    <div><img src="@Model.ImageUrl"/></div>
-    @foreach(var genre in @Model.Genres){<div>@genre</div>}
-    @foreach(var actor in @Model.Actors){<div>@actor </div>}
-    @foreach(var country in @Model.CreatedCountries){<div>@country </div>}
-    <div>Year:@Model.CreatedYear</div>
-    <form method="post" action="/Home/ProcessResponse">
-        <input name="MovieId" value="@Model.Id">
-        <button name="liked" type="submit" value="true">Да</button>
-        <button name="liked" type="submit" value="false">Нет</button>
-    </form>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="movie-card">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="@Model.ImageUrl" alt="Постер фильма" class="movie-poster img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <h2>@Model.Title</h2>
+
+                    <div class="movie-info">
+                        <span class="info-label">Год выпуска:</span>
+                        <span>2023</span>
+                    </div>
+
+                    <div class="movie-info">
+                        <span class="info-label">Жанры:</span>
+                        <div>
+                            @foreach (var genre in @Model.Genres)
+                            {
+                                <span class="badge bg-secondary me-1">@genre</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="movie-info">
+                        <span class="info-label">Актёры:</span>
+                        <div>
+                            @foreach (var actor in @Model.Actors)
+                            {
+                                <div>@actor </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="movie-info">
+                        <span class="info-label">Страны:</span>
+                        <div>
+                            @foreach (var country in @Model.CreatedCountries)
+                            {
+                                <div>@country </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <form method="post" action="/Home/ProcessResponse">
+                            <input name="MovieId" value="@Model.Id" hidden="hidden">
+                            <button class="btn btn-dislike btn-lg me-md-2" name="liked" type="submit" value="false">
+                                <i class="bi bi-hand-thumbs-down"></i>Не нравится
+                            </button>
+                            <button class="btn btn-like btn-lg" name="liked" type="submit" value="true">
+                                <i class="bi bi-hand-thumbs-up"></i>Нравится
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Добавьте этот скрипт в секцию Scripts если хотите использовать иконки Bootstrap Icons -->
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+}
+
+@* @model MoviesAI.Domain.Entities.MovieEntity *@
+@* @{ *@
+@*     ViewData["Title"] = "Home Page"; *@
+@* } *@
+@* *@
+@* <div class="text-center"> *@
+@*     <h5>@Model.Title</h5> *@
+@*     <div> *@
+@*         <img src="@Model.ImageUrl"/> *@
+@*     </div> *@
+@*     @foreach (var genre in @Model.Genres) *@
+@*     { *@
+@*         <div>@genre</div> *@
+@*     } *@
+@*     @foreach (var actor in @Model.Actors) *@
+@*     { *@
+@*         <div>@actor </div> *@
+@*     } *@
+@*     @foreach (var country in @Model.CreatedCountries) *@
+@*     { *@
+@*         <div>@country </div> *@
+@*     } *@
+@*     <div>Year:@Model.CreatedYear</div> *@
+@*     <form method="post" action="/Home/ProcessResponse"> *@
+@*         <input name="MovieId" value="@Model.Id"> *@
+@*         <button name="liked" type="submit" value="true">Да</button> *@
+@*         <button name="liked" type="submit" value="false">Нет</button> *@
+@*     </form> *@
+@* </div> *@

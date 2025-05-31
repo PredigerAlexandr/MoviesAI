@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using MoviesAI.Infrastructure;
 using MoviesAI.Infrastructure.Jobs;
 using Quartz;
@@ -10,22 +11,25 @@ builder.Services.AddDbContext<DataBaseContext>();
 
 builder.Services.AddHttpClient();
 
-builder.Services.AddQuartz(q =>
-{
-    q.UseMicrosoftDependencyInjectionJobFactory();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options => { options.LoginPath = new PathString("/Account/Login"); });
 
-    // Определение задачи
-    var jobKey = new JobKey("myJob");
-    q.AddJob<GetMovieJob>(opts => opts.WithIdentity(jobKey));
-
-    // Настройка триггера
-    q.AddTrigger(opts => opts
-        .ForJob(jobKey)
-        .WithIdentity("myJob-trigger")
-        .StartNow());
-});
-
-builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+// builder.Services.AddQuartz(q =>
+// {
+//     q.UseMicrosoftDependencyInjectionJobFactory();
+//
+//     // Определение задачи
+//     var jobKey = new JobKey("myJob");
+//     q.AddJob<GetMovieJob>(opts => opts.WithIdentity(jobKey));
+//
+//     // Настройка триггера
+//     q.AddTrigger(opts => opts
+//         .ForJob(jobKey)
+//         .WithIdentity("myJob-trigger")
+//         .StartNow());
+// });
+//
+// builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
 var app = builder.Build();
 
@@ -43,6 +47,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

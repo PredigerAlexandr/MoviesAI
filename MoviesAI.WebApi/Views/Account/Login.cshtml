@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Авторизация";
+}
+
+@model LoginModel
+
+<div class="auth-card">
+    <h2 class="text-center mb-4">Авторизация</h2>
+    <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input class="form-control" id="email" asp-for="Email" placeholder="Введите ваш email"/>
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Пароль</label>
+            <input type="password" class="form-control" asp-for="Password" placeholder="Введите пароль"/>
+             <span asp-validation-for="Password"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Войти</button>
+        <div class="text-center mt-3">
+            <a href="/Auth/Register" class="text-decoration-none">Ещё нет аккаунта? Зарегистрируйтесь</a>
+        </div>
+    </form>
+</div>

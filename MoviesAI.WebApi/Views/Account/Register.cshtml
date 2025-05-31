@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<div class="auth-card">
+    <h2 class="text-center mb-4">Регистрация</h2>
+    <form>
+        <div class="mb-3">
+            <label for="username" class="form-label">Имя пользователя</label>
+            <input type="text" class="form-control" id="username" placeholder="Придумайте имя пользователя">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Введите ваш email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Пароль</label>
+            <input type="password" class="form-control" id="password" placeholder="Придумайте пароль">
+        </div>
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Подтверждение пароля</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Повторите пароль">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+        <div class="text-center mt-3">
+            <a href="/Auth/Login" class="text-decoration-none">Уже есть аккаунт? Войдите</a>
+        </div>
+    </form>
+</div>
