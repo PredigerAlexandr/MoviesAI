@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-                        <form method="post" action="/Home/ProcessResponse">
+                        <form method="post" action="/Movies/ProcessResponse">
                             <input name="MovieId" value="@Model.Id" hidden="hidden">
                             <button class="btn btn-dislike btn-lg me-md-2" name="liked" type="submit" value="false">
                                 <i class="bi bi-hand-thumbs-down"></i>Не нравится
@@ -71,33 +71,3 @@
 @section Scripts {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 }
-
-@* @model MoviesAI.Domain.Entities.MovieEntity *@
-@* @{ *@
-@*     ViewData["Title"] = "Home Page"; *@
-@* } *@
-@* *@
-@* <div class="text-center"> *@
-@*     <h5>@Model.Title</h5> *@
-@*     <div> *@
-@*         <img src="@Model.ImageUrl"/> *@
-@*     </div> *@
-@*     @foreach (var genre in @Model.Genres) *@
-@*     { *@
-@*         <div>@genre</div> *@
-@*     } *@
-@*     @foreach (var actor in @Model.Actors) *@
-@*     { *@
-@*         <div>@actor </div> *@
-@*     } *@
-@*     @foreach (var country in @Model.CreatedCountries) *@
-@*     { *@
-@*         <div>@country </div> *@
-@*     } *@
-@*     <div>Year:@Model.CreatedYear</div> *@
-@*     <form method="post" action="/Home/ProcessResponse"> *@
-@*         <input name="MovieId" value="@Model.Id"> *@
-@*         <button name="liked" type="submit" value="true">Да</button> *@
-@*         <button name="liked" type="submit" value="false">Нет</button> *@
-@*     </form> *@
-@* </div> *@

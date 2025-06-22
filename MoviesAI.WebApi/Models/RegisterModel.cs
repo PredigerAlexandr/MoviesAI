@@ -14,4 +14,10 @@ public class RegisterModel
     [DataType(DataType.Password)]
     [Compare("Password", ErrorMessage = "Пароль введен неверно")]
     public string ConfirmPassword { get; set; }
+    
+    [Required(ErrorMessage = "Имя пользователя обязательно.")]
+    public string Name { get; set; }
+    
+    [Required(ErrorMessage = "Фамилия пользователя обязательно.")]
+    public string Surname { get; set; }
 }

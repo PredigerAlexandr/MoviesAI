@@ -43,6 +43,13 @@ public class DataBaseContext : DbContext
             .HasConversion(
                 x => JsonConvert.SerializeObject(x),
                 x => JsonConvert.DeserializeObject<List<string>?>(x));
+
+        modelBuilder.Entity<UserEntity>().Property(e => e.FavoriteMovieIds)
+            .HasColumnType("jsonb")
+            .HasDefaultValue(new List<Guid>())
+            .HasConversion(
+                x => JsonConvert.SerializeObject(x),
+                x => JsonConvert.DeserializeObject<List<Guid>?>(x));
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
