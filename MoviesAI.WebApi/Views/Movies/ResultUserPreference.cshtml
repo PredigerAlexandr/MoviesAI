@@ -1,0 +1,69 @@
+﻿@model ResultUserPreference
+
+@{
+    ViewData["Title"] = "Предпочтения";
+}
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Ваши кинопредпочтения</h1>
+
+        <!-- Блок с актёрами -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3>Любимые актёры</h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    @foreach (var actor in Model.Actors)
+                    {
+                        <li class="list-group-item">@actor</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <!-- Блок с жанрами -->
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h3>Любимые жанры</h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    @foreach (var genre in Model.Genres)
+                    {
+                        <li class="list-group-item">@genre</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <!-- Блок со странами -->
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+                <h3>Страны производства</h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    @foreach (var country in Model.Countries)
+                    {
+                        <li class="list-group-item">@country</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <!-- Блок с годами -->
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                <h3>Период</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">@Model.Year</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем Bootstrap JS (необязательно, если не нужны интерактивные элементы) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>

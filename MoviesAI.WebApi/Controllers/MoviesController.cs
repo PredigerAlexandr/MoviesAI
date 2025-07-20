@@ -102,6 +102,30 @@ public class MoviesController : Controller
         return View(moviesDto);
     }
 
+    [Authorize]
+    public async Task<IActionResult> ResultUserPreference()
+    {
+        var userEmail = User.Identity?.Name;
+
+        if (userEmail == null)
+        {
+            throw new Exception("Невозможно получить Email пользователя");
+        }
+
+        var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == userEmail) ??
+                   throw new Exception("Не был найден ожилайемый пользователь.");
+        
+        HttpClient client = new HttpClient();
+        
+        var response = await client.GetAsync($"http://127.0.0.1:8000/api/ai-model/get_preference/{user.Id.ToString()}");
+        
+        var content = await response.Content.ReadAsStringAsync();
+        
+        var result = JsonConvert.DeserializeObject<ResultUserPreference>(content);
+
+        return View(result);
+    }
+
     public IActionResult Privacy()
     {
         return View();
